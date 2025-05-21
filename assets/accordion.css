@@ -1,0 +1,76 @@
+/* Container Styles */
+.cuny-wbca-accordion {
+  border: 1px solid #ccc;
+  margin-bottom: 2em;
+}
+
+/* Theme Variants */
+.cuny-wbca-accordion.white .cuny-wbca-header {
+  background: #fff;
+}
+.cuny-wbca-accordion.chino .cuny-wbca-header {
+  background: #f9f4e6;
+}
+.cuny-wbca-accordion.blue .cuny-wbca-header {
+  background: #e0f0ff;
+}
+
+/* Header Wrapper */
+.cuny-wbca-header {
+  cursor: pointer;
+  padding: 1em;
+}
+
+/* Toggle Button */
+.cuny-wbca-toggle {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+}
+
+/* Toggle Focus for Accessibility */
+.cuny-wbca-toggle:focus {
+  outline: 2px solid #005fcc;
+}
+
+/* FontAwesome Icon via Pseudo-Element */
+.cuny-wbca-toggle::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f078"; /* Chevron down */
+  display: inline-block;
+  margin-right: 0.5em;
+  transition: transform 0.3s ease;
+}
+
+/* Icon Change When Collapsed */
+.cuny-wbca-toggle[aria-expanded="false"]::before {
+  content: "\f054"; /* Chevron right */
+}
+
+/* Panel Content */
+.cuny-wbca-panel {
+  display: none;
+  padding: 1em;
+}
+
+/* Show Panel When Visible */
+.cuny-wbca-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Style tags */
+/* Default: add bottom margin */
+.cuny-wbca-item > *:first-child {
+  margin: 0 0 3px;
+}
+
+/* If it is the last accordion section, remove bottom margin */
+.cuny-wbca-item:last-child > *:first-child {
+  margin: 0;
+}
