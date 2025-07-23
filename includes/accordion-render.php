@@ -22,7 +22,7 @@ function render_accessible_accordion_section($atts, $content = null) {
     $atts = shortcode_atts(array(
         'title' => 'Section',
         'section_id' => '',
-        'heading_tag' => 'h3',
+        'heading_tag' => 'div',
         'add_icon' => '',
         'el_class' => ''
     ), $atts);
@@ -31,12 +31,14 @@ function render_accessible_accordion_section($atts, $content = null) {
         $atts['section_id'] = uniqid('accordion_');
     }
 
-    $heading_tag = in_array($atts['heading_tag'], ['div', 'p', 'h2', 'h3', 'h4']) ? $atts['heading_tag'] : 'h3';
+    $heading_tag = in_array($atts['heading_tag'], ['div', 'p', 'h2', 'h3', 'h4']) ? $atts['heading_tag'] : 'div';
 
     $output = '<div class="cuny-wbca-item ' . esc_attr($atts['el_class']) . '">';
     $output .= '<' . $heading_tag . ' class="cuny-wbca-header cuny-wbca-icon">';
     $output .= '<button class="cuny-wbca-toggle" aria-expanded="false" aria-controls="panel-' . esc_attr($atts['section_id']) . '">';
+    $output .= '<div>';
     $output .= esc_html($atts['title']);
+    $output .= '</div>';
     $output .= '</button>';
     $output .= '</' . $heading_tag . '>';
 
