@@ -1,6 +1,5 @@
 /* Container Styles */
 .cuny-wbca-accordion {
-  border: 1px solid #ccc;
   margin-bottom: 2em;
 }
 
@@ -15,42 +14,60 @@
   background: #e0f0ff;
 }
 
+.cuny-wbca-accordion.white .cuny-wbca-header .cuny-wbca-toggle[aria-expanded="false"],
+.cuny-wbca-accordion.chino .cuny-wbca-header .cuny-wbca-toggle[aria-expanded="false"],
+.cuny-wbca-accordion.blue .cuny-wbca-header .cuny-wbca-toggle[aria-expanded="false"] {
+  background: inherit;
+}
+
 /* Header Wrapper */
 .cuny-wbca-header {
   cursor: pointer;
-  padding: 1em;
+  margin-top: 3px;
 }
 
 /* Toggle Button */
 .cuny-wbca-toggle {
   background: none;
-  border: none;
   width: 100%;
-  text-align: left;
   font-weight: bold;
-  font-size: 1.1em;
-  display: flex;
+  font-size: 1.15rem;
+  display: inline-flex;
   align-items: center;
+  text-align: left;
+  padding: .9em 1.2em;
+  border-radius: 20px;
+  border: 1px solid #000;
+}
+.cuny-wbca-toggle div {
+  width: 99%;
 }
 
 /* Toggle Focus for Accessibility */
 .cuny-wbca-toggle:focus {
-  outline: 2px solid #005fcc;
+  background-color: #ffb81c !important;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 /* FontAwesome Icon via Pseudo-Element */
 .cuny-wbca-toggle::before {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: "\f078"; /* Chevron down */
-  display: inline-block;
-  margin-right: 0.5em;
+  content: none !important;
+}
+.cuny-wbca-toggle::after {
+  font-family: "CUNY-Font-Icons";
+  content: "\e939";
   transition: transform 0.3s ease;
+  float: right;
+  border: 1px solid #000;
+  border-radius: 300px;
+  padding: 5px;
+  background-color: #fff;
 }
 
 /* Icon Change When Collapsed */
-.cuny-wbca-toggle[aria-expanded="false"]::before {
-  content: "\f054"; /* Chevron right */
+.cuny-wbca-toggle[aria-expanded="false"]::after {
+  content: "\e946";
 }
 
 /* Panel Content */
@@ -62,15 +79,22 @@
 /* Show Panel When Visible */
 .cuny-wbca-panel[aria-hidden="false"] {
   display: block;
+  border: 1px solid #000;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-bottom: 3px;
+  margin-top: -1px;
 }
 
 /* Style tags */
 /* Default: add bottom margin */
-.cuny-wbca-item > *:first-child {
+/*.cuny-wbca-item > *:first-child {
   margin: 0 0 3px;
-}
+}*/
 
 /* If it is the last accordion section, remove bottom margin */
-.cuny-wbca-item:last-child > *:first-child {
+/*.cuny-wbca-item:last-child > *:first-child {
   margin: 0;
-}
+}*/
